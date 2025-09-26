@@ -1,0 +1,17 @@
+name: Run EXE every 15 mins
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # every 15 minutes
+  workflow_dispatch:        # optional manual trigger
+
+jobs:
+  run-exe:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run EXE
+        run: |
+          ./YourApp.exe
